@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{{ .Title }}</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+    <style>
+        .chart {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="chart distanceChart">
+    <canvas id="distanceChart"></canvas>
+</div>
+<div class="chart elevationChart">
+    <canvas id="elevationChart"></canvas>
+</div>
+<div class="chart speedChart">
+    <canvas id="speedChart"></canvas>
+</div>
+<div class="chart courseChart">
+    <canvas id="courseChart"></canvas>
+</div>
+<div class="chart satellitesChart">
+    <canvas id="satellitesChart"></canvas>
+</div>
+<div class="chart hdopChart">
+    <canvas id="hdopChart"></canvas>
+</div>
+
+<script>
+    var distanceChartConfig = {{ .Charts.Distance }};
+    var elevationChartConfig = {{ .Charts.Elevation }};
+    var speedChartConfig = {{ .Charts.Speed }};
+    var courseChartConfig = {{ .Charts.Course }};
+    var satellitesChartConfig = {{ .Charts.Satellites }};
+    var hdopChartConfig = {{ .Charts.Hdop }};
+
+    new Chart(document.getElementById('distanceChart'), distanceChartConfig);
+    new Chart(document.getElementById('elevationChart'), elevationChartConfig);
+    new Chart(document.getElementById('speedChart'), speedChartConfig);
+    new Chart(document.getElementById('courseChart'), courseChartConfig);
+    new Chart(document.getElementById('satellitesChart'), satellitesChartConfig);
+    new Chart(document.getElementById('hdopChart'), hdopChartConfig);
+</script>
+</body>
+</html>

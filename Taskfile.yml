@@ -1,0 +1,15 @@
+version: 3
+
+tasks:
+  build:
+    desc: Build
+    cmds:
+      - mkdir -p build
+      - go build -o build/ github.com/ngyewch/gpx-util/tools/...
+
+  dependencyUpdates:
+    desc: Show dependency updates
+    cmds:
+      - go mod download
+      - go mod tidy
+      - go list -u -m -json all | go-mod-outdated -update -direct
